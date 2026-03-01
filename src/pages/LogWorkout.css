@@ -1,0 +1,170 @@
+.log-page {
+    padding-top: var(--space-lg);
+}
+
+.log-tracking-type {
+    margin-bottom: var(--space-lg);
+}
+
+.log-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+    margin-bottom: var(--space-lg);
+}
+
+.log-header .page-title {
+    margin-bottom: 0;
+}
+
+/* History */
+.log-history {
+    margin-bottom: var(--space-xl);
+}
+
+.log-history .section-title {
+    margin-bottom: var(--space-md);
+}
+
+.log-sessions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.log-session-card {
+    padding: var(--space-md) !important;
+    animation: slideInCard 0.3s ease both;
+}
+
+.log-session-date {
+    font-size: var(--font-size-xs);
+    color: var(--text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--space-sm);
+}
+
+.log-session-sets {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+
+.log-session-set {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-xs) 0;
+}
+
+.log-set-number {
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+}
+
+.log-set-detail {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--accent-purple-light);
+}
+
+/* Form */
+.log-form-section {
+    margin-bottom: var(--space-xl);
+}
+
+.log-sets {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-md);
+}
+
+.log-set-row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    animation: slideInCard 0.2s ease both;
+}
+
+.log-set-label {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--text-secondary);
+    min-width: 48px;
+}
+
+.log-set-inputs {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    flex: 1;
+}
+
+.log-input-group {
+    position: relative;
+    flex: 1;
+}
+
+.log-input {
+    padding-right: 36px !important;
+    text-align: center;
+    font-weight: 600;
+}
+
+.log-input-unit {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: var(--font-size-xs);
+    color: var(--text-muted);
+    pointer-events: none;
+}
+
+.log-set-x {
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.log-remove-btn {
+    width: 32px !important;
+    height: 32px !important;
+    font-size: 1rem !important;
+    flex-shrink: 0;
+    color: var(--accent-red) !important;
+}
+
+.log-add-set {
+    margin-bottom: var(--space-md);
+}
+
+.log-save {
+    transition: all var(--transition-base) !important;
+}
+
+.log-save--success {
+    background: linear-gradient(135deg, var(--accent-green) 0%, #3db8b0 100%) !important;
+    box-shadow: 0 0 20px rgba(78, 205, 196, 0.3) !important;
+}
+
+/* Footer */
+.log-footer {
+    display: flex;
+    justify-content: center;
+}
+
+/* Number input arrows removal */
+.log-input::-webkit-outer-spin-button,
+.log-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.log-input[type=number] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}

@@ -1,0 +1,226 @@
+.home-page {
+    padding-top: var(--space-2xl);
+}
+
+/* Header */
+.home-header {
+    margin-bottom: var(--space-xl);
+}
+
+.home-greeting-text {
+    font-size: var(--font-size-base);
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.home-date {
+    font-size: var(--font-size-2xl);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-top: var(--space-xs);
+    background: linear-gradient(135deg, var(--text-primary), var(--accent-purple-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Streak Banner */
+.streak-banner {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    background: linear-gradient(135deg, rgba(255, 107, 107, 0.12) 0%, rgba(255, 179, 71, 0.08) 100%);
+    border: 1px solid rgba(255, 107, 107, 0.15);
+    border-radius: var(--radius-lg);
+    padding: var(--space-md) var(--space-lg);
+    margin-bottom: var(--space-lg);
+    position: relative;
+    overflow: hidden;
+}
+
+.streak-flame {
+    font-size: 2.2rem;
+    animation: flicker 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes flicker {
+    0% {
+        transform: scale(1) rotate(-3deg);
+    }
+
+    50% {
+        transform: scale(1.1) rotate(2deg);
+    }
+
+    100% {
+        transform: scale(1) rotate(-1deg);
+    }
+}
+
+.streak-info {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-sm);
+}
+
+.streak-count {
+    font-size: var(--font-size-2xl);
+    font-weight: 900;
+    color: var(--accent-orange);
+}
+
+.streak-label {
+    font-size: var(--font-size-sm);
+    color: var(--accent-orange);
+    font-weight: 500;
+    opacity: 0.8;
+}
+
+.streak-glow {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle, rgba(255, 107, 107, 0.2) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+/* Today Card */
+.today-card {
+    margin-bottom: var(--space-lg);
+    padding: var(--space-lg);
+}
+
+.today-card-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-md);
+}
+
+.today-card-emoji {
+    font-size: 1.5rem;
+}
+
+.today-card-title {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+}
+
+.today-card-stats {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-md);
+}
+
+.today-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.today-stat-value {
+    font-size: var(--font-size-xl);
+    font-weight: 800;
+    color: var(--accent-purple-light);
+}
+
+.today-stat-label {
+    font-size: var(--font-size-xs);
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.today-stat-divider {
+    width: 1px;
+    height: 32px;
+    background: var(--border-glass);
+}
+
+.today-card-groups {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-md);
+}
+
+.today-card-empty {
+    color: var(--text-muted);
+    font-size: var(--font-size-sm);
+    padding: var(--space-md) 0;
+}
+
+.today-progress {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-md);
+}
+
+.today-progress-bar {
+    flex: 1;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.today-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-purple), var(--accent-green));
+    border-radius: 3px;
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.today-progress-text {
+    font-size: var(--font-size-xs);
+    color: var(--text-muted);
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.today-card-cta {
+    text-align: right;
+    color: var(--accent-purple-light);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+}
+
+/* Quick Links */
+.home-links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.home-link-card {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-md) var(--space-lg) !important;
+}
+
+.home-link-icon {
+    font-size: 1.5rem;
+}
+
+.home-link-text {
+    flex: 1;
+    font-weight: 600;
+    font-size: var(--font-size-base);
+}
+
+.home-link-arrow {
+    color: var(--text-muted);
+    font-size: var(--font-size-lg);
+    transition: transform var(--transition-fast);
+}
+
+.home-link-card:hover .home-link-arrow {
+    transform: translateX(4px);
+    color: var(--accent-purple-light);
+}

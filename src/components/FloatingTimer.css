@@ -1,0 +1,283 @@
+/* Floating Action Button */
+.fab-timer {
+    position: fixed;
+    bottom: calc(var(--nav-height) + 16px);
+    right: 20px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent-purple) 0%, #6454e0 100%);
+    color: white;
+    border: none;
+    cursor: pointer;
+    z-index: 60;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(124, 106, 255, 0.35);
+    transition: all 0.25s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.fab-timer:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 28px rgba(124, 106, 255, 0.45);
+}
+
+.fab-timer:active {
+    transform: scale(0.96);
+}
+
+.fab-timer--active {
+    background: linear-gradient(135deg, #5a4dd4 0%, #4a3fc4 100%);
+    animation: fabPulse 2s ease-in-out infinite;
+}
+
+.fab-timer--done {
+    background: linear-gradient(135deg, var(--accent-green) 0%, #3db8b0 100%) !important;
+    box-shadow: 0 4px 20px rgba(78, 205, 196, 0.35) !important;
+    animation: fabBounce 0.5s ease infinite alternate !important;
+}
+
+@keyframes fabPulse {
+
+    0%,
+    100% {
+        box-shadow: 0 4px 20px rgba(124, 106, 255, 0.35);
+    }
+
+    50% {
+        box-shadow: 0 4px 30px rgba(124, 106, 255, 0.55);
+    }
+}
+
+@keyframes fabBounce {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.1);
+    }
+}
+
+.fab-timer-icon {
+    font-size: 1.5rem;
+}
+
+.fab-timer-time {
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-family: 'Inter', monospace;
+}
+
+.fab-timer-ring {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+/* Timer Panel Overlay */
+.timer-panel-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    z-index: 200;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    animation: fadeIn 0.15s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Timer Panel */
+.timer-panel {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-glass);
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+    padding: var(--space-lg);
+    width: 100%;
+    max-width: 420px;
+    animation: panelSlideUp 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes panelSlideUp {
+    from {
+        transform: translateY(100%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+.timer-panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-lg);
+}
+
+.timer-panel-title {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+}
+
+/* Mode Toggle */
+.timer-mode-toggle {
+    display: flex;
+    gap: 4px;
+    background: var(--bg-glass);
+    border-radius: var(--radius-full);
+    padding: 4px;
+    margin-bottom: var(--space-lg);
+}
+
+.timer-mode-btn {
+    flex: 1;
+    padding: 8px 16px;
+    border-radius: var(--radius-full);
+    background: transparent;
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+    font-family: var(--font-family);
+}
+
+.timer-mode-btn--active {
+    background: var(--accent-purple);
+    color: white;
+    box-shadow: 0 2px 8px rgba(124, 106, 255, 0.3);
+}
+
+/* Timer Display */
+.timer-display {
+    text-align: center;
+    padding: var(--space-lg) 0;
+    margin-bottom: var(--space-md);
+}
+
+.timer-display-time {
+    font-size: 3.5rem;
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    font-variant-numeric: tabular-nums;
+    background: linear-gradient(135deg, var(--text-primary), var(--accent-purple-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.timer-display--done .timer-display-time {
+    background: linear-gradient(135deg, var(--accent-green), #6fe8dd);
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: pulseText 1s ease infinite alternate;
+}
+
+@keyframes pulseText {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0.6;
+    }
+}
+
+.timer-display-total {
+    display: block;
+    font-size: var(--font-size-xs);
+    color: var(--text-muted);
+    margin-top: var(--space-xs);
+}
+
+/* Controls */
+.timer-controls {
+    display: flex;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-lg);
+}
+
+.timer-ctrl-btn {
+    flex: 1;
+}
+
+/* Section Labels */
+.timer-section-label {
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--space-sm);
+}
+
+/* Presets */
+.timer-presets {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-xs);
+    margin-bottom: var(--space-lg);
+}
+
+.timer-preset-btn {
+    font-variant-numeric: tabular-nums;
+}
+
+/* Custom Duration */
+.timer-custom {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-sm);
+}
+
+.timer-custom-inputs {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    flex: 1;
+}
+
+.timer-custom-input {
+    width: 56px;
+    text-align: center;
+    font-weight: 700;
+    padding: 8px !important;
+    font-variant-numeric: tabular-nums;
+}
+
+.timer-custom-input::-webkit-outer-spin-button,
+.timer-custom-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.timer-custom-input[type=number] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+.timer-custom-label {
+    font-size: var(--font-size-xs);
+    color: var(--text-muted);
+    font-weight: 500;
+}

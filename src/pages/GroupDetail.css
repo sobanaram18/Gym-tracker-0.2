@@ -1,0 +1,84 @@
+.group-detail-page {
+    padding-top: var(--space-lg);
+}
+
+.group-detail-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-sm);
+}
+
+.group-detail-icon {
+    font-size: 2.5rem;
+}
+
+/* Exercise List */
+.group-exercises {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-md);
+}
+
+.group-exercise-card {
+    padding: var(--space-md) var(--space-lg) !important;
+    display: flex;
+    align-items: center;
+    animation: slideInCard 0.3s ease both;
+}
+
+.group-exercise-main {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    gap: var(--space-md);
+    cursor: pointer;
+}
+
+.group-exercise-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.group-exercise-name {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+}
+
+.group-exercise-last {
+    font-size: var(--font-size-xs);
+    color: var(--text-muted);
+}
+
+.group-exercise-delete {
+    background: none;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: var(--space-sm);
+    opacity: 0.4;
+    transition: opacity var(--transition-fast);
+    margin-left: var(--space-sm);
+}
+
+.group-exercise-delete:hover {
+    opacity: 1;
+}
+
+/* Add Form */
+.group-add-form {
+    margin-top: var(--space-md);
+}
+
+.group-add-form .input-field {
+    margin-bottom: var(--space-md);
+}
+
+.group-add-actions {
+    display: flex;
+    gap: var(--space-sm);
+    justify-content: flex-end;
+}
