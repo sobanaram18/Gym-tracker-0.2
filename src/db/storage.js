@@ -1,6 +1,5 @@
 import { v4 as uuid } from 'uuid';
 import { defaultMuscleGroups, generateDefaultExercises } from './seed';
-import { supabase } from '../supabase';
 
 const KEYS = {
     MUSCLE_GROUPS: 'gm_muscle_groups',
@@ -10,8 +9,6 @@ const KEYS = {
     SKIPPED: 'gm_skipped',
     INITIALIZED: 'gm_initialized',
 };
-
-const USER_DOC_ID = 'default_user_data';
 
 // ─── Helpers ──────────────────────────────────────────────
 function read(key) {
@@ -23,58 +20,12 @@ function read(key) {
     }
 }
 
-async function writeToSupabase(key, data) {
-    if (!supabaseUrl || supabaseUrl === 'YOUR_SUPABASE_PROJECT_URL') return;
-
-    try {
-        // We will fetch the existing document, merge the new key, and update
-        const { data: existingDoc } = await supabase
-            .from('user_data')
-            .select('data')
-            .eq('id', USER_DOC_ID)
-            .single();
-
-        const currentData = existingDoc?.data || {};
-        currentData[key] = data;
-
-        await supabase
-            .from('user_data')
-            .upsert({ id: USER_DOC_ID, data: currentData });
-
-    } catch (e) {
-        console.error("Supabase sync error:", e);
-    }
-}
-
 function write(key, data) {
     localStorage.setItem(key, JSON.stringify(data));
-    writeToSupabase(key, data);
 }
 
 // ─── Initialization ───────────────────────────────────────
-export async function initializeData() {
-    try {
-        // Fetch from Supabase first
-        const { data, error } = await supabase
-            .from('user_data')
-            .select('data')
-            .eq('id', USER_DOC_ID)
-            .single();
-
-        if (!error && data && data.data) {
-            const sbData = data.data;
-            if (sbData[KEYS.MUSCLE_GROUPS]) localStorage.setItem(KEYS.MUSCLE_GROUPS, JSON.stringify(sbData[KEYS.MUSCLE_GROUPS]));
-            if (sbData[KEYS.EXERCISES]) localStorage.setItem(KEYS.EXERCISES, JSON.stringify(sbData[KEYS.EXERCISES]));
-            if (sbData[KEYS.SCHEDULE]) localStorage.setItem(KEYS.SCHEDULE, JSON.stringify(sbData[KEYS.SCHEDULE]));
-            if (sbData[KEYS.LOGS]) localStorage.setItem(KEYS.LOGS, JSON.stringify(sbData[KEYS.LOGS]));
-            if (sbData[KEYS.SKIPPED]) localStorage.setItem(KEYS.SKIPPED, JSON.stringify(sbData[KEYS.SKIPPED]));
-            localStorage.setItem(KEYS.INITIALIZED, 'true');
-            return;
-        }
-    } catch (e) {
-        console.error("Supabase fetch error:", e);
-    }
-
+export function initializeData() {
     if (localStorage.getItem(KEYS.INITIALIZED)) return;
 
     const groups = defaultMuscleGroups;
